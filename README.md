@@ -1,20 +1,20 @@
 # Vegas3
 
-To start your Phoenix server:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+# compile comeonin with windows
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+if compile fail about comeonin on windows,
+lunch visual studio code via "Developer Command Prompt for 2015".
+it depends 
+* Visual Studio 2015
+* microsoft build tools 2015
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+# TODO 
 
-## Learn more
+* write cointoss_controller_unit_test
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+# test before 
+
+* ecto.drop
+* ecto.create
+

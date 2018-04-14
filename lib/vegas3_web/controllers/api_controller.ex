@@ -1,6 +1,8 @@
 defmodule Vegas3Web.ApiController do
   use Vegas3Web, :controller
 
+  require Logger
+
   defp get_state(conn) do
     s = get_session(conn, :cointoss_s) || :no_session
     c = get_session(conn, :cointoss_c) || 0
@@ -39,6 +41,7 @@ defmodule Vegas3Web.ApiController do
   end
 
   defp init_state_filter(s) do
+
     c1 = s.coin + s.hand + s.win
     c2 = case c1 do
       0 -> 3
@@ -122,6 +125,9 @@ defmodule Vegas3Web.ApiController do
   end
 
   def init(conn, _params) do
+
+    Logger.debug "init call"
+
     s = get_state(conn)
     |> init_state_filter
     |> update_state

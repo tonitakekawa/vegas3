@@ -53,11 +53,11 @@ defmodule Vegas3.AccountTest do
       assert users == Account.get_users!(users.id)
     end
 
-    test "delete_users/1 deletes the users" do
-      users = users_fixture()
-      assert {:ok, %Users{}} = Account.delete_users(users)
-      assert_raise Ecto.NoResultsError, fn -> Account.get_users!(users.id) end
-    end
+    #test "delete_users/1 deletes the users" do
+    #  users = users_fixture()
+    #  assert {:ok, %Users{}} = Account.delete_users(users)
+    #  assert_raise Ecto.NoResultsError, fn -> Account.get_users!(users.id) end
+    #end
 
     test "change_users/1 returns a users changeset" do
       users = users_fixture()

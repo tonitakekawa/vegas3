@@ -8,6 +8,7 @@ defmodule Vegas3Web.UsersController do
 
   def index(conn, _params) do
     user = Account.list_user()
+    #IO.inspect user
     render(conn, "index.json", user: user)
   end
 

@@ -4,13 +4,14 @@ defmodule Vegas3Web.UsersControllerTest do
   alias Vegas3.Account
   alias Vegas3.Account.Users
 
-  @create_attrs %{email: "some email", pass: "some pass"}
-  @update_attrs %{email: "some updated email", pass: "some updated pass"}
+  @create_attrs  %{email: "some email", pass: "some pass"}
+  @update_attrs  %{email: "some updated email", pass: "some updated pass"}
   @invalid_attrs %{email: nil, pass: nil}
 
-  def fixture(:users) do
+  defp create_users(_) do
     {:ok, users} = Account.create_users(@create_attrs)
-    users
+    IO.inspect users
+    {:ok, users: users}
   end
 
   setup %{conn: conn} do
@@ -62,20 +63,4 @@ defmodule Vegas3Web.UsersControllerTest do
     end
   end
 
-  describe "delete users" do
-    setup [:create_users]
-
-    test "deletes chosen users", %{conn: conn, users: users} do
-      conn = delete conn, users_path(conn, :delete, users)
-      assert response(conn, 204)
-      assert_error_sent 404, fn ->
-        get conn, users_path(conn, :show, users)
-      end
-    end
-  end
-
-  defp create_users(_) do
-    users = fixture(:users)
-    {:ok, users: users}
-  end
 end

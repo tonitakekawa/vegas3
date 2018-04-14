@@ -1,3 +1,6 @@
+
+#正直、viewにするほどのことなのかなという気もする
+
 defmodule Vegas3Web.UsersView do
   use Vegas3Web, :view
   alias Vegas3Web.UsersView
@@ -11,8 +14,13 @@ defmodule Vegas3Web.UsersView do
   end
 
   def render("users.json", %{users: users}) do
-    %{id: users.id,
+    %{
+      id:    users.id,
       email: users.email,
-      pass: users.pass}
+      pass:  "********",
+      inserted: users.inserted_at,
+      updated: users.updated_at,
+      #pass:  users.pass
+    }
   end
 end

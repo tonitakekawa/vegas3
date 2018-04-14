@@ -1,16 +1,14 @@
 defmodule Vegas3.Account.Users do
-  use Ecto.Schema
-  import Ecto.Changeset
-
+  use     Ecto.Schema
+  import  Ecto.Changeset
 
   schema "user" do
     field :email, :string
-    field :pass, :string
+    field :pass,  :string
 
     timestamps()
   end
 
-  @doc false
   def changeset(users, attrs) do
     users
     |> cast(attrs, [:email, :pass])
