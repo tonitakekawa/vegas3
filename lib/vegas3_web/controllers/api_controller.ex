@@ -1,3 +1,6 @@
+# 実際はアカウントレスコイントスなので、
+# 何かしら改名した方がいい
+
 defmodule Vegas3Web.ApiController do
   use Vegas3Web, :controller
 
