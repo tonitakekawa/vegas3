@@ -8,23 +8,17 @@ defmodule Vegas3Web.LoginController do
 
   def login(conn, %{"users" => users}) do
 
-    #users = Account.get_users!(id)
-    render(conn, "show.json", users: users)
+    email = users["email"]
+    pass  = users["pass"]
 
-    #changeset = User.changeset(%User{}, user_params)
+    {result, id} = Account.exist?(email, pass)
 
-    #if valid?(changeset) do
-    #  render conn, "index.html"
-    #else
-    #  render conn, "index.html"
-    #end
+    # TODO セッションにidを追加
 
+
+    case result do
+      :ok    -> render(conn, "succeed.json")
+      :error -> render(conn, "error.json")
+    end
   end
-
-  def valid?(changeset) do
-    :true
-  #  Repo.get_by(User, email: String.downcase(changeset.changes.email))
-  #  |> Comeonin.Bcrypt.check_pass(changeset.changes.password)
-  end
-
 end
