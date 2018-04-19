@@ -8,7 +8,6 @@ config :vegas3, Vegas3Web.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../assets", __DIR__)]]
 
-
 config :vegas3, Vegas3Web.Endpoint,
   live_reload: [
     patterns: [

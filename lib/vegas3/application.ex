@@ -11,6 +11,10 @@ defmodule Vegas3.Application do
 
     opts = [strategy: :one_for_one, name: Vegas3.Supervisor]
     Supervisor.start_link(children, opts)
+
+    # TODO supervize
+
+
   end
 
   def config_change(changed, _new, removed) do

@@ -25,6 +25,21 @@ defmodule Vegas3.Account do
 
   end
 
+  # :true
+  # :false
+  def exist?(email) do
+    query = from u in Users,
+    where: u.email == ^email,
+    select: u.id
+
+    id = Repo.all(query)
+
+    case id do
+      [] -> :false
+      _  -> :true
+    end
+  end
+
   def create_users(attrs \\ %{}) do
     %Users{}
     |> Users.changeset(attrs)

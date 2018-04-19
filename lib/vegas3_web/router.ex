@@ -16,9 +16,9 @@ defmodule Vegas3Web.Router do
 
   scope "/", Vegas3Web do
     pipe_through :api
-    resources "/user"    , UsersController, except: [:new, :edit]
-    post      "/login"   , LoginController, :login
-    post       "/version" , VersionController, :version
+    resources "/user"    , UsersController   , except: [:new, :edit]
+    post      "/login"   , LoginController   , :login
+    post      "/version" , VersionController , :version
   end
 
   scope "/cointoss", Vegas3Web do

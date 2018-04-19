@@ -15,12 +15,25 @@ defmodule Vegas3Web.UsersView do
 
   def render("users.json", %{users: users}) do
     %{
-      id:    users.id,
-      email: users.email,
-      pass:  "********",
+      result:   :true,
+      id:       users.id,
+      email:    users.email,
+      pass:     "********",
       inserted: users.inserted_at,
-      updated: users.updated_at,
-      #pass:  users.pass
+      updated:  users.updated_at,
+      message: "正常にアカウントが作成されました"
+    }
+  end
+
+  def render("error.json", _) do
+    %{
+      result:   :false,
+      id:       "",
+      email:    "",
+      pass:     "",
+      inserted: "",
+      updated:  "",
+      message: "アカウントは作成されませんでした"
     }
   end
 end

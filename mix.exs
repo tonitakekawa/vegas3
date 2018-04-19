@@ -24,7 +24,7 @@ defmodule Vegas3.Mixfile do
 
       :postgrex,
       :plug_session_redis,
-
+      :redix
     ]
     ]
   end
@@ -38,16 +38,18 @@ defmodule Vegas3.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.3.2"},
+      {:phoenix,        "~> 1.3.2"},
       {:phoenix_pubsub, "~> 1.0"},
-      {:phoenix_ecto, "~> 3.2"},
-      {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 2.10"},
+      {:phoenix_ecto,   "~> 3.2"},
+      {:postgrex,       ">= 0.0.0"},
+      {:phoenix_html,        "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"},
+      {:cowboy,  "~> 1.0"},
 
-      {:exredis,             ">= 0.2.2"           },
+      {:redix, "~> 0.7.1"},
+
+      #{:exredis,             ">= 0.2.2"           },
       {:plug_session_redis,  "~> 0.1"             },
       {:cors_plug,           "~> 1.2"             },
 
@@ -65,7 +67,7 @@ defmodule Vegas3.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test": ["ecto.create --quiet", "ecto.migrate", "test"]
+      "test":       ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 end

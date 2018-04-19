@@ -22,14 +22,6 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
-config :exredis,
-  host:      "192.168.3.5",
-  port:      6379,
-  password:  "",
-  db:        0,
-  reconnect: :no_reconnect,
-  max_queue: :infinity
-
 config :plug_session_redis, :config,
   name:  :redis_sessions,
   pool:  [size: 2, max_overflow: 5],

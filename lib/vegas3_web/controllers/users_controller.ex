@@ -13,12 +13,27 @@ defmodule Vegas3Web.UsersController do
   end
 
   def create(conn, %{"users" => users_params}) do
-    with {:ok, %Users{} = users} <- Account.create_users(users_params) do
-      conn
-      |> put_status(:created)
-      |> put_resp_header("location", users_path(conn, :show, users))
-      |> render("show.json", users: users)
+
+    email = users_params["email"]
+
+    isExist = Account.exist?(email)
+
+    IO.inspect "isExist: #{isExist}"
+
+    case isExist do
+
+      :false ->     with {:ok, %Users{} = users} <- Account.create_users(users_params) do
+        conn
+        |> put_status(:created)
+        |> put_resp_header("location", users_path(conn, :show, users))
+        |> render("show.json", users: users)
+      end
+
+      :true -> render("error.json", users: users_params)
+
     end
+
+
   end
 
   def show(conn, %{"id" => id}) do

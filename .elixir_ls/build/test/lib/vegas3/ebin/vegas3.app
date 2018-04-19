@@ -1,7 +1,7 @@
 {application,vegas3,
              [{applications,[kernel,stdlib,elixir,logger,runtime_tools,
-                             postgrex,plug_session_redis,gettext,comeonin,
-                             exredis,phoenix_pubsub,cowboy,phoenix_html,
+                             postgrex,plug_session_redis,redix,gettext,
+                             comeonin,phoenix_pubsub,cowboy,phoenix_html,
                              cors_plug,phoenix,phoenix_ecto]},
               {description,"vegas3"},
               {modules,['Elixir.Vegas3','Elixir.Vegas3.Account',
@@ -31,4 +31,4 @@
               {vsn,"0.0.1"},
               {mod,{'Elixir.Vegas3.Application',[]}},
               {extra_applications,[logger,runtime_tools,postgrex,
-                                   plug_session_redis]}]}.
+                                   plug_session_redis,redix]}]}.
